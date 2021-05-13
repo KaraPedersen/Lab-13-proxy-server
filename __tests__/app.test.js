@@ -6,24 +6,42 @@ import { reviews } from '../data/reviews.js';
 import { formatWeather, formatLocation, formatReviews } from '../lib/munge-utils.js';
 // import client from '../lib/client.js';
 // import { execSync } from 'child_process';
-const request = supertest(app);
+// const request = supertest(app);
 
 describe('API Routes', () => {
+  const expectedLocations = 
+        {
+          'formatted_query': 'Seattle, King County, Washington, USA',
+          'latitude': '47.6038321',
+          'longitude': '-122.3300624'
+        };
+ 
+
+  const expectedWeather = [
+    {
+      'forecast': 'Scattered Clouds',
+      'time': '2021-05-12:20',
+    },
+  ];
 
 
-  it('It formats the location', () => {
-    const expected = [
-      {
-        'formatted_query': 'Seattle, King County, Washington, USA', 'latitude': '47.6038321', 'longitude': '-122.3300624'
-      }
-    ];
-    //   'formatted_query': 'Seattle, Shota Rustaveli Street, Rakatboshi mahalla, Yakkasaray district, Tashkent, 100000, Uzbekistan',
-    //   'latitude': '41.2888524',
-    //   'longitude': '69.2563883'
 
 
-    expect(formatLocation(location)).toEqual(expected);
+  it('formats location', async () => {
+
+    const output = formatLocation(location);
+
+    expect(output).toEqual(expectedLocations);
   });
+  
+
+  // it('formats weather', async () =>{
+
+  //   const output = formatWeather(weather);
+
+  //   expect(output) = formatWeather(expectedWeather);
+  // });
+  
 
   it('It formats the weather', () => {
     const expected = [
