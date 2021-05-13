@@ -1,4 +1,4 @@
-export const locations = [
+export const location = [
   {
     'place_id': '235549103',
     'licence': 'https://locationiq.com/attribution',
