@@ -1,5 +1,3 @@
-import app from '../lib/app.js';
-import supertest from 'supertest';
 import { weather } from '../data/weather.js';
 import { location } from '../data/location.js';
 import { reviews } from '../data/reviews.js';
@@ -17,12 +15,12 @@ describe('API Routes', () => {
         };
  
 
-  const expectedWeather = [
-    {
-      'forecast': 'Scattered Clouds',
-      'time': '2021-05-12:20',
-    },
-  ];
+  // const expectedWeather = [
+  //   {
+  //     'forecast': 'Scattered Clouds',
+  //     'time': '2021-05-12:20',
+  //   },
+  // ];
 
 
 
@@ -54,6 +52,8 @@ describe('API Routes', () => {
     expect(formatWeather(weather)).toEqual(expected);
   });
 
+  
+  
   it('It formats the reviews', () => {
     const expected = [{
       'name': 'North India Restaurant',
